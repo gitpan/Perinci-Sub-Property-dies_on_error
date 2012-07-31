@@ -16,9 +16,9 @@ meta-spec:
 name: Perinci-Sub-property-dies_on_error
 requires:
   Perinci: 0
-  Perinci::Sub::Wrapper: 0.24
+  Perinci::Sub::Wrapper: 0.25
   perl: 5.010000
 resources:
   homepage: http://metacpan.org/dist/Perinci-Sub-property-dies_on_error
   repository: http://github.com/sharyanto/perl-Perinci-Sub-property-dies_on_error
-version: 0.01
+version: 0.02

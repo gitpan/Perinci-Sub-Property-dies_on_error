@@ -43,7 +43,11 @@ declare_property(
             $self->select_section('before_return_res');
             $self->push_lines('if ($res->[0] !~ /'.$v->{success_statuses}.'/) {');
             $self->indent;
-            $self->push_lines('die "Call f() returns non-success status $res->[0]: $res->[1]"');
+            $self->push_lines(join(
+                "",
+                'die "Call to ',
+                ($self->{_args}{sub_name} ? "$self->{_args}{sub_name}()" : "function"),
+                ' returned non-success status $res->[0]: $res->[1]"'));
             $self->unindent;
             $self->push_lines('}');
         },
@@ -75,10 +79,8 @@ With dies_on_error=>1:
 =head1 DESCRIPTION
 
 This property sets so that function dies when result status is a non-successful
-one. Successful statuses by default include 2xx and 304.
-
-Note that to actually die, you need to wrap with option trap=>0 (see
-L<Perinci::Sub::Wrapper>).
+one (it even dies under wrapping option trap=>1). Successful statuses by default
+include 2xx and 304.
 
 
 =head1 SEE ALSO

@@ -7,7 +7,7 @@ use warnings;
 
 use Perinci::Util qw(declare_property);
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 declare_property(
     name => 'dies_on_error',
@@ -23,6 +23,7 @@ declare_property(
             v       => 2,
             prio    => 99, # very low, need to be the last to do stuff to $res
             convert => 1,
+            tags    => [qw/die/], # this property can cause function to die
         },
         handler => sub {
             my ($self, %args) = @_;
@@ -43,7 +44,11 @@ declare_property(
             $self->select_section('before_return_res');
             $self->push_lines('if ($res->[0] !~ /'.$v->{success_statuses}.'/) {');
             $self->indent;
-            $self->push_lines('die "Call f() returns non-success status $res->[0]: $res->[1]"');
+            $self->push_lines(join(
+                "",
+                'die "Call to ',
+                ($self->{_args}{sub_name} ? "$self->{_args}{sub_name}()" : "function"),
+                ' returned non-success status $res->[0]: $res->[1]"'));
             $self->unindent;
             $self->push_lines('}');
         },
@@ -63,7 +68,7 @@ Perinci::Sub::property::dies_on_error - Die on non-success result
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
