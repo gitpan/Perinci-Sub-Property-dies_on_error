@@ -1,0 +1,40 @@
+NAME
+    Perinci::Sub::property::dies_on_error - Die on non-success result
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+    Without dies_on_error:
+
+     # on successful call
+     f(...); # [200, "OK"]
+
+     # on non-successful call
+     f(...); # [404, "Not found"]
+
+    With dies_on_error=>1:
+
+     # on successful call
+     f(...); # [200, "OK"]
+
+     # on non-successful call
+     f(...); # dies with message "Call f() failed with 404 status: Not found"
+
+DESCRIPTION
+    This property sets so that function dies when result status is a
+    non-successful one (it even dies under wrapping option trap=>1).
+    Successful statuses by default include 2xx and 304.
+
+SEE ALSO
+    Perinci
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2012 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+

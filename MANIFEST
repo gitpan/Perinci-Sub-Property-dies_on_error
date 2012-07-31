@@ -1,0 +1,17 @@
+Build.PL
+Changes
+Changes~
+LICENSE
+MANIFEST
+META.json
+META.yml
+README
+dist.ini
+dist.ini~
+lib/Perinci/Sub/property/dies_on_error.pm
+lib/Perinci/Sub/property/dies_on_error.pm~
+t/00-compile.t
+t/01-basics.t
+t/01-basics.t~
+t/release-pod-coverage.t
+t/release-pod-syntax.t
