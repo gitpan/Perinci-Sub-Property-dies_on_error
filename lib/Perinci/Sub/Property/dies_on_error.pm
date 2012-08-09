@@ -1,4 +1,4 @@
-package Perinci::Sub::property::dies_on_error;
+package Perinci::Sub::Property::dies_on_error;
 
 use 5.010;
 use strict;
@@ -7,7 +7,7 @@ use warnings;
 
 use Perinci::Util qw(declare_property);
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 declare_property(
     name => 'dies_on_error',
@@ -64,11 +64,11 @@ __END__
 
 =head1 NAME
 
-Perinci::Sub::property::dies_on_error - Die on non-success result
+Perinci::Sub::Property::dies_on_error - Die on non-success result
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 

@@ -1,8 +1,8 @@
 NAME
-    Perinci::Sub::property::dies_on_error - Die on non-success result
+    Perinci::Sub::Property::dies_on_error - Die on non-success result
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
     Without dies_on_error:
