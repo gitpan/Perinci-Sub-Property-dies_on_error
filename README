@@ -2,7 +2,7 @@ NAME
     Perinci::Sub::Property::dies_on_error - Die on non-success result
 
 VERSION
-    version 0.03
+    version 0.04
 
 SYNOPSIS
     Without dies_on_error:
