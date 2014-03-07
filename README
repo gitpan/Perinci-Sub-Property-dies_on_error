@@ -2,7 +2,7 @@ NAME
     Perinci::Sub::Property::dies_on_error - Die on non-success result
 
 VERSION
-    version 0.04
+    version 0.05
 
 SYNOPSIS
     Without dies_on_error:
@@ -13,7 +13,7 @@ SYNOPSIS
      # on non-successful call
      f(...); # [404, "Not found"]
 
-    With dies_on_error=>1:
+    With "dies_on_error => 1":
 
      # on successful call
      f(...); # [200, "OK"]
@@ -21,19 +21,38 @@ SYNOPSIS
      # on non-successful call
      f(...); # dies with message "Call f() failed with 404 status: Not found"
 
+    To customize what statuses are considered error: "dies_on_error => {
+    success_statuses => '^2..$' }".
+
 DESCRIPTION
     This property sets so that function dies when result status is a
     non-successful one (it even dies under wrapping option trap=>1).
-    Successful statuses by default include 2xx and 304.
+    Successful statuses by default include 2xx and 304 ('^(2..|304)$').
 
 SEE ALSO
     Perinci
+
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Perinci-Sub-Property-dies_on_error>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-Perinci-Sub-Property-dies_on_error>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    <https://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-Sub-Property-
+    dies_on_error>
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
 
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Steven Haryanto.
+    This software is copyright (c) 2014 by Steven Haryanto.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
